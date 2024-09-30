@@ -19,23 +19,6 @@
 CREATE DATABASE IF NOT EXISTS `produtosbd` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `produtosbd`;
 
--- Copiando estrutura para tabela produtosbd.clientes
-CREATE TABLE IF NOT EXISTS `clientes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `senha` varchar(50) NOT NULL,
-  `endereco` varchar(50) NOT NULL,
-  `telefone` char(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- Copiando dados para a tabela produtosbd.clientes: ~3 rows (aproximadamente)
-INSERT INTO `clientes` (`id`, `nome`, `email`, `senha`, `endereco`, `telefone`) VALUES
-	(1, 'cleberson', 'clebinho777@gmail.com', 'clebsonfirefree0', 'rua frei silva 333', '47997400930'),
-	(2, 'cleberson', 'clebinho777@gmail.com', 'clebsonfirefree0', 'rua frei silva 333', '47997400930'),
-	(3, 'cleberson', 'clebinho777@gmail.com', 'clebsonfirefree0', 'rua frei silva 333', '47997400930');
-
 -- Copiando estrutura para tabela produtosbd.produtos
 CREATE TABLE IF NOT EXISTS `produtos` (
   `fabricacao` date DEFAULT NULL,
@@ -45,10 +28,17 @@ CREATE TABLE IF NOT EXISTS `produtos` (
   `validade` date DEFAULT NULL,
   `categoria` varchar(45) DEFAULT NULL,
   `lote` varchar(45) DEFAULT NULL,
+  `link_imagem` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando dados para a tabela produtosbd.produtos: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela produtosbd.produtos: ~4 rows (aproximadamente)
+DELETE FROM `produtos`;
+INSERT INTO `produtos` (`fabricacao`, `id`, `preco`, `nome`, `validade`, `categoria`, `lote`, `link_imagem`) VALUES
+	('2024-09-18', 1, 69.99, 'raçao', '2027-09-18', 'animais', '100', 'https://www.designi.com.br/images/preview/10001751.jpg'),
+	('2024-09-18', 2, 21.99, 'shampoo', '2027-03-18', 'cabelo', '200', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIYGvu21RNDuCF1Mf-rFvJs9gV6UhQ8h1czQ&s'),
+	('2024-09-18', 3, 5.99, 'chocolate', '2024-09-18', 'doce', '70', 'https://png.pngtree.com/png-vector/20200317/ourmid/pngtree-bar-of-chocolate-icon-design-png-image_2161255.jpg'),
+	('2024-09-18', 4, 17.00, 'doritos', '2024-11-18', 'salgado', '40', 'https://i.pinimg.com/originals/d4/d8/37/d4d83754ed9ac5ee17a6d6db0de72f6c.png');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
