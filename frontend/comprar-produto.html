@@ -8,9 +8,6 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             height: 100vh;
             margin: 0;
         }
@@ -22,7 +19,7 @@
             max-width: 300px;
             text-align: center;
             padding: 20px;
-            margin: 10px;
+            margin: auto;
         }
         .product-card img {
             max-width: 100%;
@@ -61,8 +58,11 @@
             background-color: #218838;
         }
     </style>
+
 </head>
 <body>
+    <h1 style="font-size: 60px; color: red; text-align: right;">DUVALE</h1>
+    <p style="font-size: 25px; color: red; text-align: right;">Supermercados</p>
     <div class="product-card">
         <img id="imagem" src="https://via.placeholder.com/300" alt="Nome do Produto">
         <h2 id="nome">Nome do Produto</h2>
@@ -81,6 +81,7 @@
         document.getElementById('preco').innerText = produto.preco
         document.getElementById('imagem').setAttribute('src', produto.link_imagem)
     </script>
+    
 </body>
 </html>
 
