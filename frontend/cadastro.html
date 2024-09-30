@@ -1,0 +1,92 @@
+<html>
+
+<head>
+    <style>
+        input {
+            padding: 15px 65px;
+            margin: 10px;
+            font-size: 50px;
+            color: rgb(255, 0, 0);
+            background-color: rgb(255, 255, 255);
+            border-radius: 20px;
+            border: 3px solid;
+        }
+    </style>
+</head>
+
+<body style="text-align: center;">
+    <h1 style="font-size: 60px; color: red; text-align: right;">DUVALE</h1>
+    <p style="font-size: 25px; color: red; text-align: right;">Supermercados</p>
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Título Fixo</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <h1 class="titulo-fixo">Cadastrar-se</h1>
+            <div class="conteudo">
+                <p style="font-size: 25px; color: red; text-align: center;">EMAIL: </p>
+                <input type="text" id="email" />
+                <p style="font-size: 25px; color: red; text-align: center;">CRIE SUA SENHA:</p>
+                <input type="password" id="senha"/>
+                <p style="font-size: 25px; color: red; text-align: center;">CONFIRME SUA SENHA:</p>
+                <input type="password; />" />
+                <br>
+                <a href="3.html"><button class="start-button">Criar a conta</button></a>
+            </div>
+
+        <script>
+            // Pegar as variaveis dos inputs do email e senha
+
+            // Criar uma pessoa
+
+            // Mandar a pessoa pro backend
+            fetch('http://localhost:3000/clientes', {
+                method: 'POST'
+            })
+            function cadastrarPessoa() {
+        const nome = document.getElementById('nome').value;
+        const email = document.getElementById('email').value;
+        const idade = document.getElementById('idade').value;
+
+        const pessoa = {
+            nome: nome,
+            email: email,
+            idade: parseInt(idade, 10) // Converte a idade para número
+        };
+
+        fetch('http://localhost:3000/pessoas', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(pessoa)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                })
+                .then(data => {
+                    alert('Pessoa cadastrada com sucesso:', data);
+                    // Limpar os campos de entrada após o envio
+                    document.getElementById('nome').value = '';
+                    document.getElementById('email').value = '';
+                    document.getElementById('idade').value = '';
+                    window.location.href = "3.html"
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+        }
+        </script>
+    </body>
+
+    </html
+
+    
