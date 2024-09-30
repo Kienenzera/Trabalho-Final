@@ -1,37 +1,40 @@
-const { Model, DataTypes} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-class Produto extends Model {}
+class Produto extends Model { }
 
 Produto.init({
-id : {
-       type:DataTypes.INTEGER,
-       primaryKey: true,
-       autoIncrement: true
-},
-Fabricacao: {
-   type: DataTypes.DATE
-},
+   id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+   },
+   fabricacao: {
+      type: DataTypes.DATE
+   },
 
- preco: {
-    type: DataTypes.DECIMAL
- },
- nome: {
-    type: DataTypes.DECIMAL
- },
- Validade: {
-    type: DataTypes.DATE
- },
- Categoria: {
-    type: DataTypes.STRING
- },
- Lote: {
-   type: DataTypes.DECIMAL
-},
-},{
-  sequelize,
-  modelName: 'produtos',
-  timestamps: false
+   preco: {
+      type: DataTypes.DECIMAL
+   },
+   nome: {
+      type: DataTypes.DECIMAL
+   },
+   validade: {
+      type: DataTypes.DATE
+   },
+   categoria: {
+      type: DataTypes.STRING
+   },
+   lote: {
+      type: DataTypes.DECIMAL
+   },
+   link_imagem: {
+      type: DataTypes.STRING
+   },
+}, {
+   sequelize,
+   modelName: 'produtos',
+   timestamps: false
 
 })
 

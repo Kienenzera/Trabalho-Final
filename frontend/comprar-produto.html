@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #ff0000;
+            background-color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -64,15 +64,23 @@
 </head>
 <body>
     <div class="product-card">
-        <img src="https://via.placeholder.com/300" alt="Nome do Produto">
-        <h2>Nome do Produto</h2>
-        <p class="price">R$ 99,99</p>
+        <img id="imagem" src="https://via.placeholder.com/300" alt="Nome do Produto">
+        <h2 id="nome">Nome do Produto</h2>
+        <p class="price" id="preco">R$ 99,99</p>
         <div class="quantity">
             <label for="quantity">Quantidade:</label>
             <input type="number" id="quantity" name="quantity" min="1" value="1">
         </div>
         <button class="buy-button">Comprar</button>
     </div>
+
+    <script>
+        const produto = JSON.parse(localStorage.getItem('produto'))
+
+        document.getElementById('nome').innerText = produto.nome
+        document.getElementById('preco').innerText = produto.preco
+        document.getElementById('imagem').setAttribute('src', produto.link_imagem)
+    </script>
 </body>
 </html>
 
