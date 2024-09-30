@@ -19,6 +19,25 @@
 CREATE DATABASE IF NOT EXISTS `produtosbd` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `produtosbd`;
 
+-- Copiando estrutura para tabela produtosbd.clientes
+CREATE TABLE IF NOT EXISTS `clientes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `senha` varchar(50) NOT NULL,
+  `endereco` varchar(50) NOT NULL,
+  `telefone` char(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Copiando dados para a tabela produtosbd.clientes: ~3 rows (aproximadamente)
+DELETE FROM `clientes`;
+INSERT INTO `clientes` (`id`, `nome`, `email`, `senha`, `endereco`, `telefone`) VALUES
+	(1, 'cleberson', 'clebinho777@gmail.com', 'clebsonfirefree0', 'rua frei silva 333', '47997400930'),
+	(2, 'cleberson', 'clebinho777@gmail.com', 'clebsonfirefree0', 'rua frei silva 333', '47997400930'),
+	(3, 'cleberson', 'clebinho777@gmail.com', 'clebsonfirefree0', 'rua frei silva 333', '47997400930'),
+	(12, '', '', '', '', '0');
+
 -- Copiando estrutura para tabela produtosbd.produtos
 CREATE TABLE IF NOT EXISTS `produtos` (
   `fabricacao` date DEFAULT NULL,
